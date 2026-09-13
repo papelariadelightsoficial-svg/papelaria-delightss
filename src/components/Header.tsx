@@ -11,148 +11,231 @@ interface HeaderProps {
 const navLinks = [
   { label: 'Início', href: '#inicio' },
   { label: 'Produtos', href: '#produtos' },
+  { label: 'Categorias', href: '#produtos' },
   { label: 'Personalizados', href: '#personalizados' },
+  { label: 'Avaliações', href: '#avaliacoes' },
+  { label: 'Dúvidas Frequentes', href: '#faq' },
   { label: 'Sobre nós', href: '#sobre' },
   { label: 'Contato', href: '#contato' },
 ];
 
-export default function Header({ onSearch, searchQuery }: HeaderProps) {
+export default function Header({
+  onSearch,
+  searchQuery,
+}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+
   const { totalItems, openCart } = useCart();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleNavClick = (href: string) => {
     setMobileMenuOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth' });
+
+    const element = document.querySelector(href);
+
+    element?.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const el = document.querySelector('#produtos');
-    el?.scrollIntoView({ behavior: 'smooth' });
-    setSearchOpen(false);
+  const handleSearch = (value: string) => {
+    onSearch(value);
+  };
+
+  const handleSearchSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    document
+      .querySelector('#produtos')
+      ?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 border-b border-brown/10 transition-all duration-300 ${
         scrolled
-          ? 'bg-cream/95 backdrop-blur-md shadow-[0_2px_20px_rgba(99,53,31,0.1)]'
-          : 'bg-cream/80 backdrop-blur-sm'
+          ? 'bg-cream/95 backdrop-blur-md shadow-[0_4px_20px_rgba(99,53,31,0.10)]'
+          : 'bg-cream'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-[82px]">
+
+          {/* LOGO + SLOGAN */}
           <a
             href="#inicio"
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={(event) => {
+              event.preventDefault();
               handleNavClick('#inicio');
             }}
-            className="flex-shrink-0"
+            className="flex items-center gap-3 flex-shrink-0"
           >
             <Logo />
+
+            <div className="hidden xl:block max-w-[175px]">
+              <p className="font-body text-[11px] leading-[1.25] text-brown/60">
+                Há 24 anos transformando ideias
+                <br />
+                em detalhes especiais
+              </p>
+            </div>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
+          {/* MENU DESKTOP */}
+          <nav className="hidden lg:flex flex-1 items-center justify-center gap-5 xl:gap-6 px-5">
+            {navLinks.map((link, index) => (
               <a
-                key={link.href}
+                key={`${link.label}-${index}`}
                 href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={(event) => {
+                  event.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-sm font-medium text-brown hover:text-red transition-colors relative group"
+                className="relative text-[12px] xl:text-[13px] font-medium text-brown/75 hover:text-red transition-colors whitespace-nowrap group"
               >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red rounded-full transition-all duration-300 group-hover:w-full" />
+                {link.label === 'Dúvidas Frequentes' ? (
+                  <span className="text-center leading-tight block">
+                    Dúvidas
+                    <br />
+                    Frequentes
+                  </span>
+                ) : link.label === 'Sobre nós' ? (
+                  <span className="text-center leading-tight block">
+                    Sobre
+                    <br />
+                    nós
+                  </span>
+                ) : (
+                  link.label
+                )}
+
+                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-red rounded-full transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>
 
-          {/* Actions */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Search */}
+          {/* DIREITA */}
+          <div className="ml-auto flex items-center gap-2">
+
+            {/* PESQUISA DESKTOP */}
+            <form
+              onSubmit={handleSearchSubmit}
+              className="hidden xl:block"
+            >
+              <div className="relative w-[200px] 2xl:w-[230px]">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brown/35" />
+
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(event) =>
+                    handleSearch(event.target.value)
+                  }
+                  placeholder="O que você procura?"
+                  className="w-full h-10 pl-9 pr-3 rounded-xl bg-white border border-brown/10 text-xs text-brown placeholder:text-brown/35 outline-none transition-all focus:border-red/40 focus:ring-2 focus:ring-red/10"
+                />
+              </div>
+            </form>
+
+            {/* PESQUISA TABLET */}
             <button
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-cream-dark transition-colors text-brown"
-              aria-label="Buscar"
+              type="button"
+              onClick={() => {
+                document
+                  .querySelector('#produtos')
+                  ?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="xl:hidden w-10 h-10 flex items-center justify-center rounded-full text-brown hover:bg-brown/5 transition-colors"
+              aria-label="Buscar produtos"
             >
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Cart */}
+            {/* CARRINHO */}
             <button
+              type="button"
               onClick={openCart}
-              className="relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-cream-dark transition-colors text-brown"
-              aria-label="Carrinho"
+              className="relative w-11 h-11 flex items-center justify-center rounded-full bg-red text-white shadow-md hover:bg-red-dark hover:scale-105 transition-all duration-300"
+              aria-label="Abrir carrinho"
             >
               <ShoppingCart className="w-5 h-5" />
+
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center animate-pulse-soft">
+                <span className="absolute -top-1 -right-1 min-w-5 h-5 px-1 bg-yellow text-brown text-[11px] font-extrabold rounded-full flex items-center justify-center border-2 border-cream">
                   {totalItems}
                 </span>
               )}
             </button>
 
-            {/* Mobile menu toggle */}
+            {/* MENU MOBILE */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-cream-dark transition-colors text-brown"
-              aria-label="Menu"
+              type="button"
+              onClick={() =>
+                setMobileMenuOpen((previous) => !previous)
+              }
+              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full text-brown hover:bg-brown/5 transition-colors"
+              aria-label="Abrir menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
 
-        {/* Search bar */}
-        {searchOpen && (
-          <div className="pb-4 animate-fade-in">
-            <form onSubmit={handleSearchSubmit} className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brown-light" />
+        {/* MENU MOBILE */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden pb-5">
+            {/* BUSCA MOBILE */}
+            <form
+              onSubmit={handleSearchSubmit}
+              className="relative mb-4"
+            >
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brown/35" />
+
               <input
                 type="text"
                 value={searchQuery}
-                onChange={(e) => onSearch(e.target.value)}
-                placeholder="Buscar produtos..."
-                autoFocus
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-cream-dark bg-white/80 text-brown placeholder-brown-light/60 focus:outline-none focus:border-yellow transition-colors"
+                onChange={(event) =>
+                  handleSearch(event.target.value)
+                }
+                placeholder="O que você procura?"
+                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white border-2 border-brown/10 text-brown outline-none focus:border-red/40"
               />
             </form>
-          </div>
-        )}
 
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <nav className="lg:hidden pb-4 animate-slide-up">
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
+            <nav className="grid grid-cols-2 gap-2">
+              {navLinks.map((link, index) => (
                 <a
-                  key={link.href}
+                  key={`${link.label}-mobile-${index}`}
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
+                  onClick={(event) => {
+                    event.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="px-4 py-3 rounded-xl text-brown font-medium hover:bg-cream-dark transition-colors"
+                  className="px-4 py-3 rounded-xl text-sm text-brown font-medium hover:bg-brown/5 hover:text-red transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
-            </div>
-          </nav>
+            </nav>
+          </div>
         )}
       </div>
     </header>
