@@ -1,14 +1,15 @@
 import { Star, Heart } from 'lucide-react';
-import {
-  STORE_CONFIG,
-  getWhatsAppUrl,
-  WHATSAPP_MESSAGES,
-} from '@/config/store';
 
 export default function Welcome() {
   const scrollToProducts = () => {
     document
       .querySelector('#produtos')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToPersonalized = () => {
+    document
+      .querySelector('#personalizados')
       ?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -47,7 +48,7 @@ export default function Welcome() {
         </h1>
 
         <p className="text-lg md:text-xl font-body text-brown/80 mb-2">
-          {STORE_CONFIG.tagline}
+          Há 24 anos transformando ideias em detalhes especiais.
         </p>
 
         <p className="text-base md:text-lg font-body text-brown/60 mb-8">
@@ -65,14 +66,13 @@ export default function Welcome() {
             🛍️ CONHEÇA NOSSOS PRODUTOS
           </button>
 
-          <a
-            href={getWhatsAppUrl(WHATSAPP_MESSAGES.customization)}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={scrollToPersonalized}
             className="bg-blue hover:opacity-90 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg transition-all duration-300 hover:scale-105"
           >
             💖 PERSONALIZE O SEU
-          </a>
+          </button>
         </div>
       </div>
     </section>
