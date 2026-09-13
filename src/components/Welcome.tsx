@@ -1,65 +1,78 @@
-import { BookOpen, Pencil, Palette, Heart, ArrowRight } from 'lucide-react';
-
-interface Category {
-  icon: typeof BookOpen;
-  title: string;
-  description: string;
-  buttonText: string;
-  targetId: string;
-  color: 'red' | 'yellow' | 'blue' | 'brown';
-}
-
-const categories: Category[] = [
-  { icon: BookOpen, title: 'CADERNOS', description: 'Cadernos para estudar, organizar e soltar a criatividade.', buttonText: 'VER PRODUTOS', targetId: 'produtos', color: 'red' },
-  { icon: Pencil, title: 'MATERIAIS ESCOLARES', description: 'Lápis, canetas, marcadores e tudo para seus estudos.', buttonText: 'CONFERIR', targetId: 'produtos', color: 'yellow' },
-  { icon: Palette, title: 'PAPÉIS & CRIATIVIDADE', description: 'Papéis e materiais para colocar suas ideias no papel.', buttonText: 'CONHECER', targetId: 'produtos', color: 'blue' },
-  { icon: Heart, title: 'PERSONALIZADOS', description: 'Produtos especiais feitos para combinar com você.', buttonText: 'PERSONALIZAR', targetId: 'personalizados', color: 'brown' },
-];
-
-const colorMap = {
-  red: 'bg-red/10 text-red group-hover:bg-red group-hover:text-white',
-  yellow: 'bg-yellow/15 text-yellow-dark group-hover:bg-yellow group-hover:text-brown',
-  blue: 'bg-blue/10 text-blue group-hover:bg-blue group-hover:text-white',
-  brown: 'bg-brown/10 text-brown group-hover:bg-brown group-hover:text-white',
-};
+import { Star, Heart } from 'lucide-react';
+import {
+  STORE_CONFIG,
+  getWhatsAppUrl,
+  WHATSAPP_MESSAGES,
+} from '@/config/store';
 
 export default function Welcome() {
-  const scrollTo = (id: string) => {
-    document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToProducts = () => {
+    document
+      .querySelector('#produtos')
+      ?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="boas-vindas" className="py-16 sm:py-20 lg:py-24 bg-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-brown mb-5">
-            Bem-vindo à Papelaria Delights!
-          </h2>
-          <p className="text-base sm:text-lg text-brown/70 leading-relaxed mb-4">
-            Encontre tudo para deixar seus estudos, sua organização e seus momentos criativos ainda mais especiais. Trabalhamos com cadernos, papéis, materiais escolares e produtos personalizados, sempre com criatividade e carinho em cada detalhe.
-          </p>
-          <p className="text-base sm:text-lg font-medium text-red">
-            Explore nossos produtos e encontre o seu favorito!
-          </p>
+    <section className="relative overflow-hidden bg-cream py-16 sm:py-20">
+      {/* Decorações */}
+      <Star
+        className="absolute top-10 left-[8%] w-6 h-6 text-yellow opacity-60"
+        style={{ fill: 'currentColor' }}
+      />
+
+      <Star
+        className="absolute top-20 right-[10%] w-4 h-4 text-pink opacity-60"
+        style={{ fill: 'currentColor' }}
+      />
+
+      <Heart
+        className="absolute bottom-12 left-[12%] w-5 h-5 text-red opacity-50"
+        style={{ fill: 'currentColor' }}
+      />
+
+      {/* Conteúdo */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        <div className="inline-block bg-yellow/30 px-4 py-1.5 rounded-full mb-5">
+          <span className="font-display font-bold text-brown text-sm">
+            ✨ Há 24 anos fazendo história!
+          </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-          {categories.map((cat, idx) => {
-            const Icon = cat.icon;
-            return (
-              <div key={cat.title} className="group bg-white rounded-3xl p-6 card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer animate-slide-up" style={{ animationDelay: `${idx * 100}ms` }} onClick={() => scrollTo(cat.targetId)}>
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 ${colorMap[cat.color]}`}>
-                  <Icon className="w-7 h-7" />
-                </div>
-                <h3 className="font-display text-lg font-bold text-brown mb-2">{cat.title}</h3>
-                <p className="text-sm text-brown/70 mb-5 leading-relaxed">{cat.description}</p>
-                <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-brown group-hover:text-red transition-colors">
-                  {cat.buttonText}
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </button>
-              </div>
-            );
-          })}
+        <h1 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight text-brown mb-5">
+          Bem-vindo ao mundo da{' '}
+          <span className="text-red">
+            Papelaria Delights!
+          </span>{' '}
+          <span className="inline-block">✨</span>
+        </h1>
+
+        <p className="text-lg md:text-xl font-body text-brown/80 mb-2">
+          {STORE_CONFIG.tagline}
+        </p>
+
+        <p className="text-base md:text-lg font-body text-brown/60 mb-8">
+          Tudo para estudar, criar, organizar e deixar seus momentos ainda mais
+          coloridos!
+        </p>
+
+        {/* Botões */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            type="button"
+            onClick={scrollToProducts}
+            className="bg-red hover:bg-red-dark text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            🛍️ CONHEÇA NOSSOS PRODUTOS
+          </button>
+
+          <a
+            href={getWhatsAppUrl(WHATSAPP_MESSAGES.customization)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue hover:opacity-90 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            💖 PERSONALIZE O SEU
+          </a>
         </div>
       </div>
     </section>
