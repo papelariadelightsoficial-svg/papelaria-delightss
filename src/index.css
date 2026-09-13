@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    background-color: #FFF3DF;
+    color: #63351F;
+  }
+
+  ::selection {
+    background-color: #F7C843;
+    color: #63351F;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Fredoka', 'Poppins', sans-serif;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    background: #FFF3DF;
+    border-radius: 10px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: #F7C843;
+    border-radius: 10px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #E0B436;
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 2px 8px rgba(99, 53, 31, 0.15);
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 20px rgba(99, 53, 31, 0.08);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 8px 30px rgba(99, 53, 31, 0.15);
+  }
+}
