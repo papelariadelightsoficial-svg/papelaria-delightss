@@ -6,8 +6,8 @@ import Highlights from '@/components/Highlights';
 import Products from '@/components/Products';
 import Personalized from '@/components/Personalized';
 import WhyChooseUs from '@/components/WhyChooseUs';
-import Reviews from '@/components/Reviews';
-import FAQ from '@/components/FAQ';
+import { Reviews } from '@/components/Reviews';
+import { FAQ } from '@/components/FAQ';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -22,16 +22,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream">
-      <Header
-        searchQuery={searchQuery}
-        onSearch={setSearchQuery}
-      />
+      <Header searchQuery={searchQuery} onSearch={setSearchQuery} />
 
       <main>
         <Hero />
-
         <Welcome />
-
         <Highlights />
 
         <Products
@@ -42,22 +37,17 @@ function App() {
         />
 
         <Personalized />
-
         <WhyChooseUs />
 
         <Reviews />
-
         <FAQ />
 
         <About />
-
         <Contact />
       </main>
 
       <Footer />
-
       <CartPanel />
-
       <DellyAssistant />
     </div>
   );
