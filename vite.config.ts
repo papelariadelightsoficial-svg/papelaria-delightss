@@ -5,6 +5,9 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineConfig({
   base: '/papelaria-delightss/',
   plugins: [react()],
+  server: {
+    allowedHosts: true,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
