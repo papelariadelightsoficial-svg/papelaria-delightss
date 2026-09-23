@@ -1,0 +1,102 @@
+O redesign geral ficou bom, mas quero mudar novamente APENAS o HERO/BANNER principal.
+
+IMPORTANTE:
+A imagem `banner-papelaria-delights.png` atual NÃO deve mais ser usada como banner principal do site.
+
+Ela é uma peça gráfica separada do meu trabalho escolar. Meu projeto precisa apresentar separadamente:
+
+1. logo;
+2. banner;
+3. panfleto;
+4. site.
+
+Por isso, o hero do SITE precisa ter aparência de uma seção real de e-commerce, e não de um panfleto/imagem publicitária colocada dentro da página.
+
+REFaça O HERO DO ZERO usando HTML/React/Tailwind.
+
+Quero um estilo semelhante a lojas virtuais modernas de papelaria.
+
+DESKTOP:
+
+* seção ampla, mas não exageradamente alta;
+* fundo creme muito claro;
+* layout em duas colunas;
+* conteúdo textual à esquerda;
+* composição visual de produtos de papelaria à direita;
+* formas orgânicas suaves em rosa, amarelo, azul e lilás no fundo;
+* bastante espaço em branco;
+* visual moderno, organizado e profissional.
+
+LADO ESQUERDO:
+
+Pequeno destaque:
+“PAPELARIA DELIGHTS • HÁ 24 ANOS”
+
+Título grande:
+“Criatividade para todos os momentos.”
+
+Destacar a palavra “Criatividade” usando a cor rosa/framboesa da identidade.
+
+Texto:
+“Materiais escolares, papelaria criativa e produtos especiais para deixar suas ideias ainda mais incríveis.”
+
+Botão principal:
+“Conheça nossos produtos”
+
+O botão deve rolar até a seção de produtos.
+
+Pode existir um segundo botão menor:
+“Fale com a Delly”
+
+LADO DIREITO:
+
+Não coloque textos dentro de uma imagem.
+
+Monte uma composição visual elegante utilizando imagens de produtos que JÁ EXISTEM no projeto.
+
+Escolha de 3 a 5 produtos visualmente interessantes, como:
+
+* caderno;
+* canetas;
+* lápis de cor;
+* marcadores;
+* kit de papelaria.
+
+As imagens devem aparecer sem cortes:
+object-contain.
+
+Crie uma composição com os produtos em tamanhos diferentes, levemente sobrepostos, sobre formas abstratas suaves.
+
+Não crie cards comuns nessa parte. Quero uma composição de vitrine.
+
+Pode adicionar pequenos elementos decorativos, como:
+
+* estrela;
+* coração;
+* traços;
+* pontos;
+* formas abstratas.
+
+Use poucos elementos para não poluir.
+
+CORES:
+#FFF8EE fundo
+#D94B6A rosa principal
+#5B8DEF azul
+#F6C84C amarelo
+#9B7AE7 lilás
+#573323 texto
+
+IMPORTANTE:
+O hero precisa parecer parte do SITE, não uma imagem de Canva ou um panfleto.
+
+Não altere novamente os cards dos produtos, produtos, preços, carrinho, DELLY, WhatsApp ou outras funcionalidades que já foram corrigidas.
+
+Não exclua `banner-papelaria-delights.png`; apenas pare de utilizá-lo como hero principal.
+
+CELULAR:
+Transforme o hero em layout vertical.
+Texto primeiro e composição de produtos abaixo.
+Não corte produtos e não cause overflow horizontal.
+
+Depois abra a Preview e verifique visualmente o resultado em desktop e celular.
