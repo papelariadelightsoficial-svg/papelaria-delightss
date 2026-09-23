@@ -1,0 +1,83 @@
+Quero corrigir SOMENTE O BANNER PRINCIPAL DO SITE.
+
+Eu quero um BANNER COMERCIAL DE PAPELARIA de verdade, e NÃO um hero genérico de landing page.
+
+O banner deve parecer uma faixa/publicidade oficial da loja Papelaria Delights.
+
+Use a LOGO ORIGINAL da Papelaria Delights que já existe no projeto (`logo-papelaria-delights.jpeg`) como parte importante do banner.
+
+ESTRUTURA DO BANNER:
+
+LADO ESQUERDO:
+
+* Logo original da Papelaria Delights em destaque.
+* Nome “PAPELARIA DELIGHTS”.
+* Frase:
+  “Há 24 anos transformando ideias em detalhes especiais.”
+
+CENTRO:
+Título principal:
+“Tudo para estudar, criar e se organizar 💗”
+
+Texto menor:
+“Materiais escolares • Papelaria criativa • Personalizados”
+
+Adicionar um botão:
+“Ver produtos”
+
+LADO DIREITO:
+Criar uma composição bonita utilizando algumas imagens REAIS dos produtos existentes no projeto, como cadernos, lápis de cor, canetas, marcadores e kits.
+
+Na parte inferior do banner, adicionar uma faixa discreta de informações da loja:
+
+📱 WhatsApp: usar o número que JÁ ESTÁ configurado no projeto.
+
+📸 Instagram: @papelariadelights
+
+✉️ [contato@papelariadelights.com](mailto:contato@papelariadelights.com)
+
+IMPORTANTE:
+NÃO invente número de telefone. Leia o número existente na configuração atual do projeto e use exatamente esse.
+
+VISUAL:
+
+Quero aparência de banner profissional de uma papelaria.
+
+Use:
+
+* creme #FFF8EE como base;
+* rosa/framboesa #D94B6A como principal;
+* amarelo #F6C84C;
+* azul #5B8DEF;
+* lilás #9B7AE7;
+* marrom #573323 para textos.
+
+Pode usar:
+
+* formas arredondadas;
+* pequenas estrelas;
+* corações;
+* rabiscos;
+* lápis/canetas/cadernos;
+* detalhes coloridos.
+
+Mas mantenha organização e boa leitura.
+
+O banner deve ter identidade própria da PAPELARIA DELIGHTS e combinar com a logo.
+
+Não quero que pareça apenas uma imagem aleatória de material escolar.
+
+Quero que ao olhar seja possível identificar imediatamente:
+LOGO + PAPELARIA DELIGHTS + PRODUTOS + CONTATO.
+
+RESPONSIVIDADE:
+
+No desktop, faça uma faixa horizontal ampla e bem organizada.
+
+No celular, reorganize os elementos para que logo, texto e contato continuem legíveis, sem simplesmente diminuir o banner inteiro até o texto ficar minúsculo.
+
+Não altere outras partes do site.
+
+Não mexa novamente nos cards, DELLY, produtos, preços ou demais seções.
+
+Altere SOMENTE o banner e teste na Preview.
