@@ -23,7 +23,7 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-white">
       <Header searchQuery={searchQuery} onSearch={setSearchQuery} />
 
       <main>
@@ -50,10 +50,12 @@ function App() {
       </main>
 
       <Footer />
+
       <ProductDetailsModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
       />
+
       <CartPanel />
       <DellyAssistant />
     </div>
