@@ -15,214 +15,35 @@ export interface Product {
   highlight?: boolean;
 }
 
+const productImage = (file: string) =>
+  `${import.meta.env.BASE_URL}produtos/${file}`;
+
 export const products: Product[] = [
-  {
-    id: 1,
-    name: 'Caderno personalizado',
-    price: 49.90,
-    category: 'Personalizados',
-    image: 'https://images.pexels.com/photos/8230968/pexels-photo-8230968.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Caderno especial para deixar seus estudos com a sua cara.',
-    highlight: true
-  },
-  {
-    id: 2,
-    name: 'Caderno espiral',
-    price: 32.90,
-    category: 'Cadernos',
-    image: 'https://images.pexels.com/photos/8250879/pexels-photo-8250879.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Prático para estudar, anotar e organizar o dia a dia.',
-    highlight: true
-  },
-  {
-    id: 3,
-    name: 'Caderno de desenho',
-    price: 29.90,
-    category: 'Cadernos',
-    image: 'https://images.pexels.com/photos/15100360/pexels-photo-15100360.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Para desenhos, ideias e muita criatividade.'
-  },
-  {
-    id: 4,
-    name: 'Lápis',
-    price: 3.50,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/30583224/pexels-photo-30583224.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Essencial para estudos e anotações.'
-  },
-  {
-    id: 5,
-    name: 'Caneta',
-    price: 5.90,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/6187604/pexels-photo-6187604.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Caneta prática para escrever com estilo.'
-  },
-  {
-    id: 6,
-    name: 'Lápis de cor',
-    price: 27.90,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/39178808/pexels-photo-39178808.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Cores vibrantes para desenhar e criar.',
-    highlight: true
-  },
-  {
-    id: 7,
-    name: 'Canetinhas',
-    price: 24.90,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/2327071/pexels-photo-2327071.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Canetinhas coloridas para suas criações.'
-  },
-  {
-    id: 8,
-    name: 'Régua',
-    price: 6.90,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/5412199/pexels-photo-5412199.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Para medições e atividades escolares.'
-  },
-  {
-    id: 9,
-    name: 'Borracha',
-    price: 4.50,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/5412197/pexels-photo-5412197.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Borracha macia para apagar suas anotações.'
-  },
-  {
-    id: 10,
-    name: 'Papel colorido',
-    price: 14.90,
-    category: 'Papéis',
-    image: 'https://images.pexels.com/photos/20085501/pexels-photo-20085501.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Papéis coloridos para trabalhos e criações.'
-  },
-  {
-    id: 11,
-    name: 'Post-it',
-    price: 12.90,
-    category: 'Papéis',
-    image: 'https://images.pexels.com/photos/6991385/pexels-photo-6991385.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Para lembretes, estudos e organização.',
-    highlight: true
-  },
-  {
-    id: 12,
-    name: 'Bloco de anotações',
-    price: 19.90,
-    category: 'Papéis',
-    image: 'https://images.pexels.com/photos/7967828/pexels-photo-7967828.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Tenha suas ideias sempre à mão.'
-  },
-  {
-    id: 13,
-    name: 'Kit de papelaria',
-    price: 69.90,
-    category: 'Kits',
-    image: 'https://images.pexels.com/photos/6192514/pexels-photo-6192514.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Uma seleção especial de itens de papelaria.',
-    highlight: true
-  },
-  {
-    id: 14,
-    name: 'Kit escolar',
-    price: 89.90,
-    category: 'Kits',
-    image: 'https://images.pexels.com/photos/12861343/pexels-photo-12861343.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Kit para deixar a rotina escolar mais prática.'
-  },
-  {
-    id: 15,
-    name: 'Produtos personalizados',
-    price: 44.90,
-    category: 'Personalizados',
-    image: 'https://images.pexels.com/photos/8850766/pexels-photo-8850766.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Itens personalizados para momentos especiais.',
-    highlight: true
-  },
-  {
-    id: 16,
-    name: 'Caderno pontilhado',
-    price: 39.90,
-    category: 'Cadernos',
-    image: 'https://images.pexels.com/photos/5905710/pexels-photo-5905710.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Ideal para bullet journal e organização.'
-  },
-  {
-    id: 17,
-    name: 'Agenda colorida',
-    price: 49.90,
-    category: 'Cadernos',
-    image: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Organize compromissos, tarefas e ideias.'
-  },
-  {
-    id: 18,
-    name: 'Marcadores coloridos',
-    price: 27.90,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/27170967/pexels-photo-27170967.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Destaque informações importantes com cores.'
-  },
-  {
-    id: 19,
-    name: 'Kit de canetas',
-    price: 34.90,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/27170968/pexels-photo-27170968.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Várias cores para escrever e decorar.'
-  },
-  {
-    id: 20,
-    name: 'Estojo escolar colorido',
-    price: 39.90,
-    category: 'Materiais escolares',
-    image: 'https://images.pexels.com/photos/5963052/pexels-photo-5963052.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Para guardar seus materiais com praticidade.'
-  },
-  {
-    id: 21,
-    name: 'Cartolina colorida',
-    price: 9.90,
-    category: 'Papéis',
-    image: 'https://images.pexels.com/photos/29847878/pexels-photo-29847878.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Perfeita para trabalhos e projetos criativos.'
-  },
-  {
-    id: 22,
-    name: 'Adesivos decorativos',
-    price: 12.90,
-    category: 'Papéis',
-    image: 'https://images.pexels.com/photos/10605237/pexels-photo-10605237.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Dê um toque divertido às suas criações.'
-  },
-  {
-    id: 23,
-    name: 'Clips coloridos',
-    price: 8.90,
-    category: 'Papéis',
-    image: 'https://images.pexels.com/photos/5594311/pexels-photo-5594311.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Organização com um toque de cor.'
-  },
-  {
-    id: 24,
-    name: 'Pasta criativa',
-    price: 29.90,
-    category: 'Personalizados',
-    image: 'https://images.pexels.com/photos/5905439/pexels-photo-5905439.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Para guardar trabalhos, desenhos e papéis.'
-  },
-  {
-    id: 25,
-    name: 'Kit de desenho criativo',
-    price: 79.90,
-    category: 'Personalizados',
-    image: 'https://images.pexels.com/photos/30345421/pexels-photo-30345421.jpeg?auto=compress&cs=tinysrgb&w=940',
-    description: 'Kit especial para colocar a criatividade em prática.',
-    highlight: true
-  }
+  { id: 1, name: 'Caderno personalizado', price: 49.90, category: 'Personalizados', image: productImage('01-caderno-personalizado.png'), description: 'Caderno espiral personalizado com capa floral delicada e acabamento elegante.', highlight: true },
+  { id: 2, name: 'Caderno espiral', price: 32.90, category: 'Cadernos', image: productImage('02-caderno-espiral.png'), description: 'Caderno espiral pautado, com folhas organizadas para estudos e anotações do dia a dia.', highlight: true },
+  { id: 3, name: 'Caderno de desenho', price: 29.90, category: 'Cadernos', image: productImage('03-caderno-desenho.png'), description: 'Caderno espiral de capa resistente, ideal para desenhos, rascunhos e projetos criativos.' },
+  { id: 4, name: 'Lápis', price: 3.50, category: 'Materiais escolares', image: productImage('04-lapis.png'), description: 'Lápis grafite Masterprint com corpo verde, indicado para escrita, desenho e atividades escolares.' },
+  { id: 5, name: 'Caneta', price: 5.90, category: 'Materiais escolares', image: productImage('05-caneta.png'), description: 'Canetas esferográficas em cores azul, vermelha e preta, práticas para escola e escritório.' },
+  { id: 6, name: 'Lápis de cor', price: 27.90, category: 'Materiais escolares', image: productImage('06-lapis-de-cor.png'), description: 'Lápis de cor Faber-Castell Multi Color com 12 cores e 2 EcoLápis grafite para completar o estojo.', highlight: true },
+  { id: 7, name: 'Canetinhas', price: 24.90, category: 'Materiais escolares', image: productImage('07-canetinhas.png'), description: 'Canetinhas Faber-Castell com 12 cores variadas para desenhos, trabalhos e atividades criativas.' },
+  { id: 8, name: 'Régua', price: 6.90, category: 'Materiais escolares', image: productImage('08-regua.png'), description: 'Régua escolar colorida em tons pastel, prática para medições, traços e atividades escolares.' },
+  { id: 9, name: 'Borracha', price: 4.50, category: 'Materiais escolares', image: productImage('09-borracha.png'), description: 'Borracha Stabilo Legend em cores variadas, ideal para apagar escrita a lápis com praticidade.' },
+  { id: 10, name: 'Papel colorido', price: 14.90, category: 'Papéis', image: productImage('10-papel-colorido.png'), description: 'Papel criativo colorido Scrity Paper A4 com variedade de cores para trabalhos escolares e artesanato.' },
+  { id: 11, name: 'Post-it', price: 12.90, category: 'Papéis', image: productImage('11-post-it.png'), description: 'Notas adesivas Post-it 3M Super Adesivo em cores variadas para lembretes, estudos e organização.', highlight: true },
+  { id: 12, name: 'Bloco de anotações', price: 19.90, category: 'Papéis', image: productImage('12-bloco-anotacoes.png'), description: 'Blocos de anotações em papel rosa, ideais para recados, listas e pequenas anotações.' },
+  { id: 13, name: 'Kit de papelaria', price: 69.90, category: 'Kits', image: productImage('13-kit-papelaria.png'), description: 'Kit de papelaria com organizadores, grampeador, clips, canetas, marca-texto e blocos adesivos.', highlight: true },
+  { id: 14, name: 'Kit escolar', price: 89.90, category: 'Kits', image: productImage('14-kit-escolar.png'), description: 'Kit escolar completo com cadernos, canetas, lápis, lápis de cor, tintas Acrilex, tesoura, cola, régua e outros materiais.' },
+  { id: 15, name: 'Produtos personalizados', price: 44.90, category: 'Personalizados', image: productImage('15-produtos-personalizados.png'), description: 'Caderno criativo de adesivos com capa colorida, ideal para personalizar cadernos, agendas e trabalhos.', highlight: true },
+  { id: 16, name: 'Caderno pontilhado', price: 39.90, category: 'Cadernos', image: productImage('16-caderno-pontilhado.png'), description: 'Caderno espiral com páginas quadriculadas, ideal para organização, planejamento, estudos e anotações.' },
+  { id: 17, name: 'Agenda colorida', price: 49.90, category: 'Cadernos', image: productImage('17-agenda-colorida.png'), description: 'Agenda espiral disponível em várias cores, prática para organizar compromissos, tarefas e anotações.' },
+  { id: 18, name: 'Marcadores coloridos', price: 27.90, category: 'Materiais escolares', image: productImage('18-marcadores-coloridos.png'), description: 'Conjunto de marcadores artísticos em diversas cores, com pontas para colorir, destacar e criar detalhes.' },
+  { id: 19, name: 'Kit de canetas', price: 34.90, category: 'Materiais escolares', image: productImage('19-kit-canetas.png'), description: 'Kit BIC Cristal Cores e Sentimentos com 10 canetas esferográficas coloridas e estojo organizador.' },
+  { id: 20, name: 'Estojo escolar colorido', price: 39.90, category: 'Materiais escolares', image: productImage('20-estojo-colorido.png'), description: 'Estojo escolar transparente colorido com fechamento em zíper, disponível em diferentes cores.' },
+  { id: 21, name: 'Cartolina colorida', price: 9.90, category: 'Papéis', image: productImage('21-cartolina-colorida.png'), description: 'Conjunto de folhas coloridas em várias tonalidades, indicado para trabalhos, recortes e projetos criativos.' },
+  { id: 22, name: 'Adesivos decorativos', price: 12.90, category: 'Papéis', image: productImage('22-adesivos-decorativos.png'), description: 'Caderno de adesivos decorativos com ilustrações coloridas para personalizar agendas, cadernos e presentes.' },
+  { id: 23, name: 'Clips coloridos', price: 8.90, category: 'Papéis', image: productImage('23-clips-coloridos.png'), description: 'Clips coloridos Yins Paper de 33 mm, embalagem com 100 unidades para organizar folhas e documentos.' },
+  { id: 24, name: 'Pasta criativa', price: 29.90, category: 'Personalizados', image: productImage('24-pasta-criativa.png'), description: 'Pastas coloridas em diversas tonalidades para guardar documentos, trabalhos escolares e papéis.' },
+  { id: 25, name: 'Kit de desenho criativo', price: 79.90, category: 'Personalizados', image: productImage('25-kit-desenho-criativo.png'), description: 'Maleta artística completa com lápis, canetinhas, giz de cera, aquarela e outros materiais para desenho e pintura.', highlight: true }
 ];
 
 export const categoryFilters: ('Todos' | ProductCategory)[] = [
@@ -241,12 +62,27 @@ export function formatPrice(price: number): string {
   }).format(price);
 }
 
-export function findProductByName(query: string): Product | undefined {
-  const lower = query.toLowerCase().trim();
+function normalizeText(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim();
+}
 
-  return products.find(
-    (p) =>
-      p.name.toLowerCase().includes(lower) ||
-      p.category.toLowerCase().includes(lower)
-  );
+export function findProductByName(query: string): Product | undefined {
+  const normalizedQuery = normalizeText(query);
+
+  return [...products]
+    .sort((a, b) => b.name.length - a.name.length)
+    .find((product) => {
+      const normalizedName = normalizeText(product.name);
+      const normalizedCategory = normalizeText(product.category);
+
+      return (
+        normalizedQuery.includes(normalizedName) ||
+        normalizedName.includes(normalizedQuery) ||
+        normalizedCategory === normalizedQuery
+      );
+    });
 }
