@@ -1,0 +1,183 @@
+Analise primeiro todo o projeto existente da PAPELARIA DELIGHTS antes de alterar qualquer arquivo.
+
+Este projeto já está funcional. NÃO recrie o site do zero e NÃO remova funcionalidades existentes.
+
+Quero fazer um REDESIGN VISUAL completo, mantendo os produtos, imagens, preços, carrinho, pesquisa, filtros, páginas dos produtos, WhatsApp, avaliações, FAQ e a assistente DELLY funcionando.
+
+OBJETIVO:
+Deixar a Papelaria Delights com aparência de uma loja virtual moderna, bonita, colorida e profissional. Ela deve continuar divertida e criativa, mas sem parecer infantil demais ou ter cores exageradas.
+
+NOVA IDENTIDADE VISUAL:
+
+Use principalmente:
+
+* Creme claro: #FFF8EE
+* Rosa/framboesa: #D94B6A
+* Azul: #5B8DEF
+* Amarelo: #F6C84C
+* Lilás: #9B7AE7
+* Marrom escuro: #573323
+* Branco: #FFFFFF
+
+O rosa/framboesa deve ser a cor principal.
+Use azul, amarelo e lilás apenas como cores complementares.
+Use creme como fundo predominante e branco nos cards.
+
+Evite excesso de cores diferentes no mesmo componente.
+
+BANNER / HERO:
+Quero substituir o visual atual do banner por um hero muito mais profissional.
+
+Crie um banner de e-commerce de papelaria:
+
+* fundo creme claro;
+* formas orgânicas suaves e coloridas;
+* texto grande à esquerda;
+* composição visual relacionada a materiais de papelaria à direita;
+* pequenos elementos decorativos como estrelas, rabiscos e formas, sem exagerar;
+* aparência alegre e moderna;
+* bastante espaço livre;
+* ótima aparência em desktop e celular.
+
+Texto principal:
+“Tudo o que você precisa em um só lugar!”
+
+Texto secundário:
+“Papelaria, criatividade e produtos especiais para deixar seus estudos ainda mais incríveis.”
+
+Adicionar discretamente:
+“Há 24 anos transformando ideias em detalhes especiais.”
+
+Botão principal:
+“Ver produtos”
+
+O botão deve levar até a seção de produtos.
+
+Se já existir uma imagem de banner no projeto, você pode reutilizar elementos dela, mas melhore bastante a composição e o layout ao redor dela.
+
+CARDS DOS PRODUTOS:
+Quero uma mudança grande no visual dos quadrados/cards dos produtos.
+
+Faça cards de e-commerce modernos:
+
+* fundo branco;
+* cantos arredondados;
+* borda creme/cinza extremamente suave;
+* sombra discreta;
+* tamanho consistente;
+* bom espaçamento;
+* nome organizado;
+* preço bem destacado;
+* botão de adicionar ao carrinho bonito;
+* hover suave no desktop.
+
+IMPORTANTE SOBRE AS FOTOS:
+As fotos dos produtos foram escolhidas especificamente para a loja.
+NÃO substitua nenhuma delas.
+
+Todas devem aparecer inteiras e centralizadas.
+
+Use object-contain nas imagens.
+NÃO use object-cover.
+NÃO corte as imagens.
+NÃO aplique zoom exagerado.
+
+Crie uma área quadrada branca dentro de cada card para a foto.
+
+DELLY:
+A DELLY é a assistente virtual da Papelaria Delights.
+
+NÃO altere a lógica nem remova as respostas existentes dela.
+
+Quero melhorar muito a identidade visual da DELLY.
+
+Crie um mascote/ícone visual simpático inspirado em papelaria, usando principalmente rosa, creme e amarelo, com pequenos detalhes azuis.
+
+Ela deve parecer uma personagem oficial da Papelaria Delights, e não um chatbot genérico.
+
+Melhore também:
+
+* botão flutuante;
+* cabeçalho do chat;
+* balões das mensagens;
+* perguntas rápidas;
+* botão X;
+* espaçamento;
+* aparência no celular.
+
+LOGO:
+Preserve a identidade e o nome PAPELARIA DELIGHTS.
+
+Melhore a forma como a logo atual aparece no header:
+
+* tamanho adequado;
+* boa nitidez;
+* espaçamento correto;
+* sem ficar apertada;
+* integrada à nova paleta.
+
+Não substitua permanentemente a logo original sem necessidade.
+
+HEADER:
+Deixe o cabeçalho mais limpo.
+
+Organize:
+logo + navegação + pesquisa + carrinho.
+
+Não deixe muitos elementos coloridos competindo entre si.
+
+PRODUTOS:
+Mantenha TODOS os produtos, nomes, preços, categorias e imagens existentes.
+
+Melhore somente apresentação, organização e responsividade.
+
+PADRONIZAÇÃO:
+Revise também visualmente as seções:
+
+* Novidades
+* Produtos
+* Personalizados
+* Por que escolher a Delights
+* Avaliações
+* FAQ
+* Sobre
+* Contato
+* Footer
+
+Não transforme cada seção em uma cor diferente.
+Quero que todo o site pareça fazer parte da mesma identidade.
+
+RESPONSIVIDADE:
+Revise todo o site em:
+
+* desktop;
+* tablet;
+* celular.
+
+Corrija:
+
+* overflow horizontal;
+* elementos cortados;
+* textos grandes demais;
+* imagens cortadas;
+* botões apertados;
+* cards desalinhados;
+* espaçamentos inconsistentes.
+
+IMPORTANTE:
+Não altere os caminhos das imagens dos produtos.
+Não remova funcionalidades.
+Não altere a configuração necessária para GitHub Pages.
+Não quebre as rotas existentes.
+Não remova a integração com WhatsApp.
+Não recrie o projeto do zero.
+
+Trabalhe sobre os componentes existentes e reutilize a estrutura atual sempre que possível.
+
+Depois das alterações:
+
+1. execute o projeto;
+2. verifique erros de TypeScript;
+3. execute o build;
+4. corrija qualquer erro;
+5. mostre a prévia final funcionando.

@@ -15,11 +15,11 @@ export default function ProductCard({ product }: { product: Product }) {
   };
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-1 flex flex-col">
-      <div className="relative aspect-[4/3] overflow-hidden bg-cream-dark">
-        <img src={product.image} alt={product.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+    <div className="group flex flex-col overflow-hidden rounded-2xl border border-cream-dark bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div className="relative aspect-square overflow-hidden bg-cream-light p-4">
+        <img src={product.image} alt={product.name} loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]" />
         {product.highlight && (
-          <span className="absolute top-3 left-3 bg-yellow text-brown text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">Destaque</span>
+          <span className="absolute left-3 top-3 rounded-full bg-yellow px-2.5 py-1 text-xs font-bold text-brown shadow-sm">Destaque</span>
         )}
       </div>
       <div className="p-4 sm:p-5 flex flex-col flex-1">

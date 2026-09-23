@@ -9,13 +9,14 @@
 
   body {
     font-family: 'Poppins', system-ui, sans-serif;
-    background-color: #FFF3DF;
-    color: #63351F;
+    background-color: #FFF8EE;
+    color: #573323;
+    overflow-x: hidden;
   }
 
   ::selection {
-    background-color: #F7C843;
-    color: #63351F;
+    background-color: #F6C84C;
+    color: #573323;
   }
 }
 
@@ -38,28 +39,36 @@
   }
 
   .custom-scroll::-webkit-scrollbar-track {
-    background: #FFF3DF;
+    background: #FFF8EE;
     border-radius: 10px;
   }
 
   .custom-scroll::-webkit-scrollbar-thumb {
-    background: #F7C843;
+    background: #F6C84C;
     border-radius: 10px;
   }
 
   .custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: #E0B436;
+    background: #D9A936;
   }
 
   .text-shadow-soft {
-    text-shadow: 0 2px 8px rgba(99, 53, 31, 0.15);
+    text-shadow: 0 2px 8px rgba(87, 51, 35, 0.15);
   }
 
   .card-shadow {
-    box-shadow: 0 4px 20px rgba(99, 53, 31, 0.08);
+    box-shadow: 0 8px 24px rgba(87, 51, 35, 0.08);
   }
 
   .card-shadow-hover {
-    box-shadow: 0 8px 30px rgba(99, 53, 31, 0.15);
+    box-shadow: 0 14px 34px rgba(87, 51, 35, 0.14);
+  }
+
+  .section-title {
+    @apply font-display text-3xl sm:text-4xl font-bold text-brown;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 }

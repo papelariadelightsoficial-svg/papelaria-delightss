@@ -4,29 +4,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#FFF3DF',
-        'cream-light': '#FFF9EE',
-        'cream-dark': '#FFE8C7',
+        cream: '#FFF8EE',
+        'cream-light': '#FFFDF8',
+        'cream-dark': '#F2E4D6',
         red: {
-          DEFAULT: '#E83B2E',
-          light: '#F0655B',
-          dark: '#C42E22',
+          DEFAULT: '#D94B6A',
+          light: '#E97991',
+          dark: '#B83A58',
         },
         brown: {
-          DEFAULT: '#63351F',
-          light: '#8B5A3C',
-          dark: '#4A2812',
+          DEFAULT: '#573323',
+          light: '#80604D',
+          dark: '#3C2116',
         },
         yellow: {
-          DEFAULT: '#F7C843',
-          light: '#FAD873',
-          dark: '#E0B436',
+          DEFAULT: '#F6C84C',
+          light: '#F9D979',
+          dark: '#D9A936',
         },
         blue: {
-          DEFAULT: '#39A9DB',
-          light: '#5BBEEA',
-          dark: '#2A8BB8',
+          DEFAULT: '#5B8DEF',
+          light: '#86ABF4',
+          dark: '#426FCC',
         },
+        lilac: '#9B7AE7',
+        pink: '#D94B6A',
+        green: '#39A875',
+        'delight-cream': '#FFF8EE',
+        'delight-cream-dark': '#F2E4D6',
+        'delight-pink': '#D94B6A',
+        'delight-red': '#D94B6A',
+        'delight-yellow': '#F6C84C',
+        'delight-brown': '#573323',
       },
       fontFamily: {
         sans: ['Poppins', 'system-ui', 'sans-serif'],
@@ -38,6 +47,9 @@ export default {
         'slide-in-right': 'slideInRight 0.3s ease-out',
         'bounce-soft': 'bounceSoft 2s ease-in-out infinite',
         'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
+        'float-slow': 'floatSlow 3s ease-in-out infinite',
+        'float-medium': 'floatMedium 2.5s ease-in-out infinite',
+        wiggle: 'wiggle 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -59,6 +71,18 @@ export default {
         pulseSoft: {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.05)' },
+        },
+        floatSlow: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        floatMedium: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
         },
       },
     },

@@ -461,8 +461,8 @@ export default function DellyAssistant() {
           aria-label="Abrir DELLY"
         >
           <div className="relative">
-            <div className="w-[76px] h-[76px] bg-pink rounded-full shadow-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <div className="w-[66px] h-[66px] bg-white rounded-full flex items-center justify-center overflow-hidden">
+            <div className="flex h-[78px] w-[78px] items-center justify-center rounded-[1.6rem] bg-red shadow-2xl shadow-red/25 transition-transform duration-300 group-hover:scale-110">
+              <div className="flex h-[66px] w-[66px] items-center justify-center overflow-hidden rounded-[1.25rem] border-4 border-white bg-cream">
                 <Mascot
                   size={72}
                   animate
@@ -470,7 +470,7 @@ export default function DellyAssistant() {
               </div>
             </div>
 
-            <span className="absolute -top-1 -right-2 bg-yellow text-brown text-[11px] font-bold rounded-full px-2.5 py-1 shadow-md">
+            <span className="absolute -right-2 -top-2 rounded-full bg-yellow px-2.5 py-1 text-[11px] font-bold text-brown shadow-md">
               DELLY
             </span>
           </div>
@@ -481,14 +481,14 @@ export default function DellyAssistant() {
       {isOpen && (
         <div className="fixed bottom-0 right-0 sm:bottom-5 sm:right-5 z-40 w-full sm:w-[390px] animate-slide-up">
           <div
-            className="bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-cream-dark"
+            className="flex flex-col overflow-hidden rounded-t-3xl border border-cream-dark bg-white shadow-2xl sm:rounded-3xl"
             style={{
               maxHeight:
                 'min(650px, calc(100vh - 40px))',
             }}
           >
             {/* CABEÇALHO */}
-            <div className="relative bg-[#D94B6A] p-4 flex items-center gap-3">
+            <div className="relative flex items-center gap-3 bg-red p-4">
 
               <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden shadow">
                 <Mascot
@@ -526,11 +526,11 @@ export default function DellyAssistant() {
                   items-center
                   justify-center
                   rounded-full
-                  bg-[#63351F]
+                   bg-brown
                   text-white
                   shadow-lg
                   hover:scale-105
-                  hover:bg-[#4f2918]
+                   hover:bg-brown-dark
                   transition
                 "
               >
@@ -633,7 +633,7 @@ export default function DellyAssistant() {
                           question.label
                         )
                       }
-                      className="px-3 py-2 rounded-xl bg-cream hover:bg-pink hover:text-white text-brown text-xs font-semibold transition-colors text-left"
+                      className="rounded-xl border border-cream-dark bg-cream px-3 py-2 text-left text-xs font-semibold text-brown transition-colors hover:border-red hover:bg-red hover:text-white"
                     >
                       {question.icon}{' '}
                       {question.label}
@@ -657,7 +657,7 @@ export default function DellyAssistant() {
                   setInput(event.target.value)
                 }
                 placeholder="Pergunte alguma coisa para a DELLY..."
-                className="flex-1 bg-cream rounded-xl px-4 py-3 text-sm text-brown placeholder-brown/40 focus:outline-none focus:ring-2 focus:ring-yellow/50"
+                className="flex-1 rounded-xl border border-cream-dark bg-cream px-4 py-3 text-sm text-brown placeholder-brown/40 focus:outline-none focus:ring-2 focus:ring-yellow/50"
               />
 
               <button

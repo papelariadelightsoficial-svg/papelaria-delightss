@@ -66,14 +66,14 @@ export default function Header({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 border-b border-brown/10 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 border-b border-cream-dark transition-all duration-300 ${
         scrolled
-          ? 'bg-cream/95 backdrop-blur-md shadow-[0_4px_20px_rgba(99,53,31,0.10)]'
-          : 'bg-cream'
+          ? 'bg-cream/95 backdrop-blur-md shadow-[0_4px_20px_rgba(87,51,35,0.10)]'
+          : 'bg-cream/95'
       }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-[82px]">
+        <div className="mx-auto flex h-[82px] max-w-7xl items-center">
 
           {/* LOGO + SLOGAN */}
           <a
@@ -169,7 +169,7 @@ export default function Header({
             <button
               type="button"
               onClick={openCart}
-              className="relative w-11 h-11 flex items-center justify-center rounded-full bg-red text-white shadow-md hover:bg-red-dark hover:scale-105 transition-all duration-300"
+              className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-red text-white shadow-md shadow-red/20 transition-all duration-300 hover:scale-105 hover:bg-red-dark"
               aria-label="Abrir carrinho"
             >
               <ShoppingCart className="w-5 h-5" />

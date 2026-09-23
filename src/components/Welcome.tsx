@@ -1,4 +1,4 @@
-import { Star, Heart } from 'lucide-react';
+import { Heart, Sparkles } from 'lucide-react';
 
 export default function Welcome() {
   const scrollToProducts = () => {
@@ -14,64 +14,32 @@ export default function Welcome() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-cream py-16 sm:py-20">
-      {/* Decorações */}
-      <Star
-        className="absolute top-10 left-[8%] w-6 h-6 text-yellow opacity-60"
-        style={{ fill: 'currentColor' }}
-      />
-
-      <Star
-        className="absolute top-20 right-[10%] w-4 h-4 text-pink opacity-60"
-        style={{ fill: 'currentColor' }}
-      />
-
-      <Heart
-        className="absolute bottom-12 left-[12%] w-5 h-5 text-red opacity-50"
-        style={{ fill: 'currentColor' }}
-      />
-
-      {/* Conteúdo */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-        <div className="inline-block bg-yellow/30 px-4 py-1.5 rounded-full mb-5">
-          <span className="font-display font-bold text-brown text-sm">
-            ✨ Há 24 anos fazendo história!
-          </span>
+    <section className="border-y border-cream-dark bg-white py-8 sm:py-10">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:px-6 lg:flex-row lg:px-8">
+        <div className="flex items-center gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-yellow/25 text-yellow">
+            <Sparkles className="h-6 w-6" />
+          </div>
+          <div>
+            <p className="font-display text-lg font-bold text-brown">Um mundo feito para suas ideias</p>
+            <p className="text-sm text-brown/60">Tudo para estudar, criar e organizar com mais personalidade.</p>
+          </div>
         </div>
-
-        <h1 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight text-brown mb-5">
-          Bem-vindo ao mundo da{' '}
-          <span className="text-red">
-            Papelaria Delights!
-          </span>{' '}
-          <span className="inline-block">✨</span>
-        </h1>
-
-        <p className="text-lg md:text-xl font-body text-brown/80 mb-2">
-          Há 24 anos transformando ideias em detalhes especiais.
-        </p>
-
-        <p className="text-base md:text-lg font-body text-brown/60 mb-8">
-          Tudo para estudar, criar, organizar e deixar seus momentos ainda mais
-          coloridos!
-        </p>
-
-        {/* Botões */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <button
             type="button"
             onClick={scrollToProducts}
-            className="bg-red hover:bg-red-dark text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-red px-5 py-3 font-display font-bold text-white transition-colors hover:bg-red-dark"
           >
-            🛍️ CONHEÇA NOSSOS PRODUTOS
+            Conheça os produtos
           </button>
-
           <button
             type="button"
             onClick={scrollToPersonalized}
-            className="bg-blue hover:opacity-90 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue/25 bg-blue/10 px-5 py-3 font-display font-bold text-blue-dark transition-colors hover:bg-blue/20"
           >
-            💖 PERSONALIZE O SEU
+            <Heart className="h-4 w-4" />
+            Personalize o seu
           </button>
         </div>
       </div>

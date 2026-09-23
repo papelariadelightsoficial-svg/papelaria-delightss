@@ -25,7 +25,7 @@ export default function CartPanel() {
   return (
     <>
       {isCartOpen && (<div className="fixed inset-0 bg-brown/40 backdrop-blur-sm z-50 animate-fade-in" onClick={closeCart} />)}
-      <div className={`fixed top-0 right-0 bottom-0 w-full sm:w-[420px] bg-cream z-50 shadow-2xl flex flex-col transition-transform duration-300 ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed bottom-0 right-0 top-0 z-50 flex w-full flex-col bg-cream shadow-2xl transition-transform duration-300 sm:w-[420px] ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex items-center justify-between px-5 py-4 border-b border-cream-dark bg-white">
           <div className="flex items-center gap-2.5">
             <ShoppingCart className="w-5 h-5 text-red" />
@@ -46,7 +46,7 @@ export default function CartPanel() {
             <div className="space-y-3">
               {items.map((item) => (
                 <div key={item.id} className="bg-white rounded-2xl p-3 flex gap-3 card-shadow animate-slide-up">
-                  <img src={item.image} alt={item.name} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
+                  <img src={item.image} alt={item.name} className="h-20 w-20 flex-shrink-0 rounded-xl bg-cream-light object-contain p-1" />
                   <div className="flex-1 min-w-0">
                     <h3 className="font-medium text-brown text-sm leading-snug mb-1 truncate">{item.name}</h3>
                     <p className="text-red font-bold text-sm mb-2">{formatPrice(item.price)}</p>
