@@ -3,13 +3,10 @@ import {
   useRef,
   useEffect,
   useCallback,
+  type FormEvent,
 } from 'react';
 
-import {
-  X,
-  Send,
-  MessageCircle,
-} from 'lucide-react';
+import { X, Send } from 'lucide-react';
 
 import {
   products,
@@ -193,7 +190,7 @@ function generateResponse(input: string): string {
       .filter(
         (item) =>
           item.category === 'Cadernos' ||
-          item.name.toLowerCase().includes('caderno')
+          normalizeText(item.name).includes('caderno')
       )
       .slice(0, 4);
 
@@ -371,18 +368,41 @@ export default function DellyAssistant() {
   ]);
 
   const [input, setInput] = useState('');
-
   const [isTyping, setIsTyping] =
     useState(false);
 
   const messagesEndRef =
     useRef<HTMLDivElement>(null);
 
+  /* ROLA AUTOMATICAMENTE PARA A ÚLTIMA MENSAGEM */
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: 'smooth',
     });
   }, [messages, isOpen, isTyping]);
+
+  /* FECHA A DELLY COM ESC */
+  useEffect(() => {
+    const handleEscape = (
+      event: KeyboardEvent
+    ) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener(
+      'keydown',
+      handleEscape
+    );
+
+    return () => {
+      window.removeEventListener(
+        'keydown',
+        handleEscape
+      );
+    };
+  }, []);
 
   const sendMessage = useCallback(
     (text: string) => {
@@ -421,7 +441,7 @@ export default function DellyAssistant() {
   );
 
   const handleSubmit = (
-    event: React.FormEvent<HTMLFormElement>
+    event: FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
     sendMessage(input);
@@ -456,9 +476,7 @@ export default function DellyAssistant() {
 
       {/* CHAT */}
       {isOpen && (
-        <div
-          className="fixed bottom-0 right-0 sm:bottom-5 sm:right-5 z-40 w-full sm:w-[390px] animate-slide-up"
-        >
+        <div className="fixed bottom-0 right-0 sm:bottom-5 sm:right-5 z-40 w-full sm:w-[390px] animate-slide-up">
           <div
             className="bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-cream-dark"
             style={{
@@ -469,7 +487,6 @@ export default function DellyAssistant() {
             {/* CABEÇALHO */}
             <div className="bg-gradient-to-r from-pink to-purple p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-
                 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden shadow">
                   <Mascot
                     size={52}
@@ -488,19 +505,21 @@ export default function DellyAssistant() {
                 </div>
               </div>
 
+              {/* X PARA FECHAR */}
               <button
                 type="button"
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full hover:bg-white/20 transition-colors"
-                aria-label="Fechar"
+                onClick={() =>
+                  setIsOpen(false)
+                }
+                className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors"
+                aria-label="Fechar assistente"
               >
-                <X className="w-5 h-5 text-white" />
+                <X className="w-6 h-6 text-white" />
               </button>
             </div>
 
             {/* MENSAGENS */}
             <div className="flex-1 overflow-y-auto custom-scroll p-4 space-y-3 bg-cream">
-
               {messages.map(
                 (message, index) => (
                   <div
@@ -523,7 +542,8 @@ export default function DellyAssistant() {
 
                     <div
                       className={`max-w-[78%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-line ${
-                        message.role === 'user'
+                        message.role ===
+                        'user'
                           ? 'bg-blue text-white rounded-br-sm'
                           : 'bg-white text-brown rounded-bl-sm shadow-sm'
                       }`}
@@ -571,10 +591,20 @@ export default function DellyAssistant() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* PERGUNTAS RÁPIDAS */}
+            {/* PERGUNTAS RÁPIDAS COM ROLAGEM PARA O LADO */}
             <div className="border-t border-cream-dark px-3 py-3 bg-white">
-              <div className="grid grid-cols-2 gap-2">
-
+              <div
+                className="
+                  flex
+                  gap-2
+                  overflow-x-auto
+                  scroll-smooth
+                  snap-x
+                  snap-mandatory
+                  scrollbar-hide
+                  pb-1
+                "
+              >
                 {quickQuestions.map(
                   (question) => (
                     <button
@@ -585,14 +615,27 @@ export default function DellyAssistant() {
                           question.label
                         )
                       }
-                      className="px-3 py-2 rounded-xl bg-cream hover:bg-pink hover:text-white text-brown text-xs font-semibold transition-colors text-left"
+                      className="
+                        flex-none
+                        snap-start
+                        whitespace-nowrap
+                        px-4
+                        py-2.5
+                        rounded-xl
+                        bg-cream
+                        hover:bg-pink
+                        hover:text-white
+                        text-brown
+                        text-xs
+                        font-semibold
+                        transition-colors
+                      "
                     >
                       {question.icon}{' '}
                       {question.label}
                     </button>
                   )
                 )}
-
               </div>
             </div>
 
@@ -605,18 +648,21 @@ export default function DellyAssistant() {
                 type="text"
                 value={input}
                 onChange={(event) =>
-                  setInput(event.target.value)
+                  setInput(
+                    event.target.value
+                  )
                 }
                 placeholder="Pergunte alguma coisa para a DELLY..."
-                className="flex-1 bg-cream rounded-xl px-4 py-3 text-sm text-brown placeholder-brown/40 focus:outline-none focus:ring-2 focus:ring-yellow/50"
+                className="flex-1 min-w-0 bg-cream rounded-xl px-4 py-3 text-sm text-brown placeholder-brown/40 focus:outline-none focus:ring-2 focus:ring-yellow/50"
               />
 
               <button
                 type="submit"
                 disabled={
-                  !input.trim() || isTyping
+                  !input.trim() ||
+                  isTyping
                 }
-                className="w-11 h-11 flex items-center justify-center rounded-xl bg-red hover:bg-red-dark disabled:opacity-40 text-white transition-colors"
+                className="w-11 h-11 flex items-center justify-center rounded-xl bg-red hover:bg-red-dark disabled:opacity-40 text-white transition-colors flex-shrink-0"
                 aria-label="Enviar"
               >
                 <Send className="w-4 h-4" />
