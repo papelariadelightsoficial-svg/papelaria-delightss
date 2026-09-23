@@ -9,7 +9,7 @@
 
   body {
     font-family: 'Poppins', system-ui, sans-serif;
-    background-color: #FFF9F0;
+    background-color: #FFFFFF;
     color: #5B3828;
     overflow-x: hidden;
   }
@@ -39,7 +39,7 @@
   }
 
   .custom-scroll::-webkit-scrollbar-track {
-    background: #FFF9F0;
+    background: #FFFFFF;
     border-radius: 10px;
   }
 
