@@ -7,7 +7,7 @@ export default function Hero() {
     <section id="inicio" className="relative overflow-hidden bg-cream">
       <div className="w-full">
         <img
-          src={`${import.meta.env.BASE_URL}banner-papelaria-delights.png`}
+          src={`${import.meta.env.BASE_URL}banner-papelaria-delights-novo.png`}
           alt="Papelaria Delights — Tudo o que você precisa em um só lugar"
           className="h-auto w-full object-cover"
           loading="eager"
