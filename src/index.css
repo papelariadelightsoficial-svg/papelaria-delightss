@@ -9,14 +9,14 @@
 
   body {
     font-family: 'Poppins', system-ui, sans-serif;
-    background-color: #FFF8EE;
-    color: #573323;
+    background-color: #FFF9F0;
+    color: #5B3828;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: #F6C84C;
-    color: #573323;
+    background-color: #F5C84C;
+    color: #5B3828;
   }
 }
 
@@ -39,29 +39,29 @@
   }
 
   .custom-scroll::-webkit-scrollbar-track {
-    background: #FFF8EE;
+    background: #FFF9F0;
     border-radius: 10px;
   }
 
   .custom-scroll::-webkit-scrollbar-thumb {
-    background: #F6C84C;
+    background: #F5C84C;
     border-radius: 10px;
   }
 
   .custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: #D9A936;
+    background: #D8AA37;
   }
 
   .text-shadow-soft {
-    text-shadow: 0 2px 8px rgba(87, 51, 35, 0.15);
+    text-shadow: 0 2px 8px rgba(91, 56, 40, 0.15);
   }
 
   .card-shadow {
-    box-shadow: 0 8px 24px rgba(87, 51, 35, 0.08);
+    box-shadow: 0 8px 24px rgba(91, 56, 40, 0.08);
   }
 
   .card-shadow-hover {
-    box-shadow: 0 14px 34px rgba(87, 51, 35, 0.14);
+    box-shadow: 0 14px 34px rgba(91, 56, 40, 0.14);
   }
 
   .section-title {

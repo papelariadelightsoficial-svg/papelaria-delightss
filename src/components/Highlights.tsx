@@ -1,7 +1,12 @@
 import { products } from '@/data/products';
+import type { Product } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 
-export default function Highlights() {
+export default function Highlights({
+  onProductSelect,
+}: {
+  onProductSelect: (product: Product) => void;
+}) {
   const highlighted = products.filter((p) => p.highlight).slice(0, 4);
 
   return (
@@ -13,7 +18,11 @@ export default function Highlights() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {highlighted.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              onProductSelect={onProductSelect}
+            />
           ))}
         </div>
       </div>

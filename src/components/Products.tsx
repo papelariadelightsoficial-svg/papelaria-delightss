@@ -14,6 +14,7 @@ interface ProductsProps {
   onSearchChange: (value: string) => void;
   activeFilter: 'Todos' | ProductCategory;
   onFilterChange: (value: 'Todos' | ProductCategory) => void;
+  onProductSelect: (product: Product) => void;
 }
 
 type SortOption =
@@ -34,6 +35,7 @@ export default function Products({
   onSearchChange,
   activeFilter,
   onFilterChange,
+  onProductSelect,
 }: ProductsProps) {
   const [sort, setSort] = useState<SortOption>('relevant');
   const [addedIds, setAddedIds] = useState<Set<number>>(new Set());
@@ -193,7 +195,16 @@ export default function Products({
               return (
                 <article
                   key={product.id}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-cream-dark bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => onProductSelect(product)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      onProductSelect(product);
+                    }
+                  }}
+                  className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-cream-dark bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red/40"
                 >
                   {/* IMAGEM */}
                   <div className="relative aspect-square overflow-hidden bg-cream-light p-4 sm:h-56 sm:aspect-auto">
@@ -204,30 +215,27 @@ export default function Products({
                       className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                     />
 
-                    {/* ETIQUETA DA CATEGORIA */}
-                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 font-display text-xs font-semibold text-brown shadow-sm">
-                      {product.category}
-                    </span>
                   </div>
 
                   {/* INFORMAÇÕES */}
                   <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-display font-bold text-lg text-brown mb-1">
+                    <h3 className="mb-2 font-display text-lg font-bold text-brown">
                       {product.name}
                     </h3>
-
-                    <p className="font-body text-sm text-brown/55 mb-3">
-                      {product.category}
+                    <p className="mb-5 min-h-[2.5rem] line-clamp-2 font-body text-sm leading-relaxed text-brown/60">
+                      {product.description}
                     </p>
-
-                    <p className="mt-auto mb-5 font-display font-extrabold text-2xl text-red">
+                    <p className="mt-auto mb-5 font-display text-2xl font-extrabold text-red">
                       {formatPrice(product.price)}
                     </p>
 
                     {/* BOTÃO */}
                     <button
                       type="button"
-                      onClick={() => handleAdd(product)}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        handleAdd(product);
+                      }}
                       className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-full font-display font-bold text-sm text-white shadow-md transition-all duration-300 ${
                         wasAdded
                           ? 'bg-green'

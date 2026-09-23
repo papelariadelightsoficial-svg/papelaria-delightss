@@ -13,12 +13,14 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import CartPanel from '@/components/CartPanel';
 import DellyAssistant from '@/components/DellyAssistant';
-import type { ProductCategory } from '@/data/products';
+import type { Product, ProductCategory } from '@/data/products';
+import ProductDetailsModal from '@/components/ProductDetailsModal';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] =
     useState<'Todos' | ProductCategory>('Todos');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
     <div className="min-h-screen bg-cream">
@@ -27,13 +29,14 @@ function App() {
       <main>
         <Hero />
         <Welcome />
-        <Highlights />
+        <Highlights onProductSelect={setSelectedProduct} />
 
         <Products
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           activeFilter={activeFilter}
           onFilterChange={setActiveFilter}
+          onProductSelect={setSelectedProduct}
         />
 
         <Personalized />
@@ -47,6 +50,10 @@ function App() {
       </main>
 
       <Footer />
+      <ProductDetailsModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
       <CartPanel />
       <DellyAssistant />
     </div>
