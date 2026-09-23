@@ -6,6 +6,7 @@ export default defineConfig({
   base: '/papelaria-delightss/',
   plugins: [react()],
   server: {
+    host: '0.0.0.0',
     allowedHosts: true,
   },
   resolve: {
