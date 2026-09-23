@@ -6,7 +6,10 @@ import {
   type FormEvent,
 } from 'react';
 
-import { X, Send } from 'lucide-react';
+import {
+  X,
+  Send,
+} from 'lucide-react';
 
 import {
   products,
@@ -368,13 +371,13 @@ export default function DellyAssistant() {
   ]);
 
   const [input, setInput] = useState('');
+
   const [isTyping, setIsTyping] =
     useState(false);
 
   const messagesEndRef =
     useRef<HTMLDivElement>(null);
 
-  /* ROLA AUTOMATICAMENTE PARA A ÚLTIMA MENSAGEM */
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: 'smooth',
@@ -485,41 +488,63 @@ export default function DellyAssistant() {
             }}
           >
             {/* CABEÇALHO */}
-            <div className="bg-gradient-to-r from-pink to-purple p-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden shadow">
-                  <Mascot
-                    size={52}
-                    animate={false}
-                  />
-                </div>
+            <div className="relative bg-[#D94B6A] p-4 flex items-center gap-3">
 
-                <div>
-                  <h3 className="font-display font-extrabold text-white text-lg leading-none">
-                    DELLY
-                  </h3>
-
-                  <p className="text-white/80 text-xs mt-1">
-                    Assistente virtual • Online
-                  </p>
-                </div>
+              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden shadow">
+                <Mascot
+                  size={52}
+                  animate={false}
+                />
               </div>
 
-              {/* X PARA FECHAR */}
+              <div>
+                <h3 className="font-display font-extrabold text-white text-lg leading-none">
+                  DELLY
+                </h3>
+
+                <p className="text-white/80 text-xs mt-1">
+                  Assistente virtual • Online
+                </p>
+              </div>
+
+              {/* X BEM VISÍVEL */}
               <button
                 type="button"
                 onClick={() =>
                   setIsOpen(false)
                 }
-                className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors"
                 aria-label="Fechar assistente"
+                title="Fechar"
+                className="
+                  absolute
+                  top-3
+                  right-3
+                  z-50
+                  w-10
+                  h-10
+                  flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#63351F]
+                  text-white
+                  shadow-lg
+                  hover:scale-105
+                  hover:bg-[#4f2918]
+                  transition
+                "
               >
-                <X className="w-6 h-6 text-white" />
+                <X
+                  size={22}
+                  strokeWidth={3}
+                />
               </button>
+
             </div>
 
             {/* MENSAGENS */}
             <div className="flex-1 overflow-y-auto custom-scroll p-4 space-y-3 bg-cream">
+
               {messages.map(
                 (message, index) => (
                   <div
@@ -542,8 +567,7 @@ export default function DellyAssistant() {
 
                     <div
                       className={`max-w-[78%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-line ${
-                        message.role ===
-                        'user'
+                        message.role === 'user'
                           ? 'bg-blue text-white rounded-br-sm'
                           : 'bg-white text-brown rounded-bl-sm shadow-sm'
                       }`}
@@ -557,6 +581,7 @@ export default function DellyAssistant() {
               {/* DELLY DIGITANDO */}
               {isTyping && (
                 <div className="flex justify-start items-end">
+
                   <div className="w-8 h-8 mr-2 rounded-full bg-white shadow-sm flex items-center justify-center overflow-hidden">
                     <Mascot
                       size={34}
@@ -566,6 +591,7 @@ export default function DellyAssistant() {
 
                   <div className="bg-white rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
                     <div className="flex gap-1">
+
                       <span className="w-2 h-2 rounded-full bg-brown/30 animate-bounce" />
 
                       <span
@@ -583,6 +609,7 @@ export default function DellyAssistant() {
                             '300ms',
                         }}
                       />
+
                     </div>
                   </div>
                 </div>
@@ -591,20 +618,11 @@ export default function DellyAssistant() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* PERGUNTAS RÁPIDAS COM ROLAGEM PARA O LADO */}
+            {/* PERGUNTAS RÁPIDAS */}
             <div className="border-t border-cream-dark px-3 py-3 bg-white">
-              <div
-                className="
-                  flex
-                  gap-2
-                  overflow-x-auto
-                  scroll-smooth
-                  snap-x
-                  snap-mandatory
-                  scrollbar-hide
-                  pb-1
-                "
-              >
+
+              <div className="grid grid-cols-2 gap-2">
+
                 {quickQuestions.map(
                   (question) => (
                     <button
@@ -615,27 +633,14 @@ export default function DellyAssistant() {
                           question.label
                         )
                       }
-                      className="
-                        flex-none
-                        snap-start
-                        whitespace-nowrap
-                        px-4
-                        py-2.5
-                        rounded-xl
-                        bg-cream
-                        hover:bg-pink
-                        hover:text-white
-                        text-brown
-                        text-xs
-                        font-semibold
-                        transition-colors
-                      "
+                      className="px-3 py-2 rounded-xl bg-cream hover:bg-pink hover:text-white text-brown text-xs font-semibold transition-colors text-left"
                     >
                       {question.icon}{' '}
                       {question.label}
                     </button>
                   )
                 )}
+
               </div>
             </div>
 
@@ -644,16 +649,15 @@ export default function DellyAssistant() {
               onSubmit={handleSubmit}
               className="flex items-center gap-2 px-3 py-3 bg-white border-t border-cream-dark"
             >
+
               <input
                 type="text"
                 value={input}
                 onChange={(event) =>
-                  setInput(
-                    event.target.value
-                  )
+                  setInput(event.target.value)
                 }
                 placeholder="Pergunte alguma coisa para a DELLY..."
-                className="flex-1 min-w-0 bg-cream rounded-xl px-4 py-3 text-sm text-brown placeholder-brown/40 focus:outline-none focus:ring-2 focus:ring-yellow/50"
+                className="flex-1 bg-cream rounded-xl px-4 py-3 text-sm text-brown placeholder-brown/40 focus:outline-none focus:ring-2 focus:ring-yellow/50"
               />
 
               <button
@@ -662,11 +666,12 @@ export default function DellyAssistant() {
                   !input.trim() ||
                   isTyping
                 }
-                className="w-11 h-11 flex items-center justify-center rounded-xl bg-red hover:bg-red-dark disabled:opacity-40 text-white transition-colors flex-shrink-0"
+                className="w-11 h-11 flex items-center justify-center rounded-xl bg-red hover:bg-red-dark disabled:opacity-40 text-white transition-colors"
                 aria-label="Enviar"
               >
                 <Send className="w-4 h-4" />
               </button>
+
             </form>
 
             {/* RODAPÉ */}
@@ -676,6 +681,7 @@ export default function DellyAssistant() {
                 Papelaria Delights 💖
               </p>
             </div>
+
           </div>
         </div>
       )}
